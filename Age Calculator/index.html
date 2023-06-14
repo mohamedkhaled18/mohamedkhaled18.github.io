@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/favicon-32x32.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calcuator</title>
+</head>
+<body>
+    <h1>Age Calcuator</h1>
+    <div class="container">
+        <div class="input">
+            <div class="day">
+                <span>DAY</span>
+                <input type="number" id="day" placeholder="DD">
+                <span class="one">this field must be filled</span>
+                <span class="Aone">Must Be Valid Day</span>
+            </div>
+            <div class="month">
+                <span>MONTH</span>
+                <input type="number" id="month" placeholder="MM">
+                <span class="two">this field must be filled</span>
+                <span class="Atwo">Must Be Valid</span>
+            </div>
+            <div class="year">
+                <span>YEAR</span>
+                <input type="number" id="year" placeholder="YYYY">
+                <span class="three">this field must be filled</span>
+                <span class="Athree">Must Be Valid</span>
+            </div>
+            <img src="./images/icon-arrow.svg" alt="Arrow For Result">
+        </div>
+        
+        <div class="result">
+            <h2><span class="years">--</span>Years</h2>
+            <h2><span class="months">--</span>Months</h2>
+            <h2><span class="days">--</span>Days</h2>
+        </div>
+    </div>
+    <p>This Coded By &copy; Mohamed Khaled</p>
+    
+    <script>
+        let Alert1 = document.querySelector("span.one");
+        let Alert2 = document.querySelector("span.two");
+        let Alert3 = document.querySelector("span.three");
+
+        let Al1 = document.querySelector("span.Aone");
+        let Al2 = document.querySelector("span.Atwo");
+        let Al3 = document.querySelector("span.Athree");
+
+        let inputDay = document.querySelector("#day");
+        let inputMonth = document.querySelector("#month");
+        let inputYear = document.querySelector("#year");
+        // =================> Inputs.
+        let resultY = document.querySelector("span.years");
+        let resultM = document.querySelector("span.months");
+        let resultD = document.querySelector("span.days");
+        // =================> Result.
+
+        document.onkeyup = (e) => {
+            let dateNow = new Date();
+            let birthDate = new Date(`${inputMonth.value} ${inputDay.value} , ${inputYear.value}`);
+            let dateDiff = dateNow - birthDate;
+            if (e.key === "Enter") {
+                resultD.innerText = Math.floor(dateDiff / 1000 / 60 / 60 / 24 );
+                resultM.innerText = Math.floor(dateDiff / 1000 / 60 / 60 / 24 / 7);
+                resultY.innerText = Math.floor(dateDiff / 1000 / 60 / 60 / 24 / 365);
+            }
+            if (inputDay.value === "" || inputMonth.value === "" || inputYear.value === "" ) {
+                    Alert1.style.display = "block"; Alert2.style.display = "block"; Alert3.style.display = "block";
+                    inputDay.style.border = "1px solid #ff5656"; inputMonth.style.border = "1px solid #ff5656"; inputYear.style.border = "1px solid #ff5656";
+                    resultD.innerText = "--";
+                    resultM.innerText = "--";
+                    resultY.innerText = "--";
+                    e.preventDefault();
+            }
+            if (inputDay.value === "" && inputMonth.value === "" && inputYear.value === "" ) {
+                    Alert1.style.display = "block"; Alert2.style.display = "block"; Alert3.style.display = "block";
+                    inputDay.style.border = "1px solid #ff5656"; inputMonth.style.border = "1px solid #ff5656"; inputYear.style.border = "1px solid #ff5656";
+                    resultD.innerText = "--";
+                    resultM.innerText = "--";
+                    resultY.innerText = "--";
+                    e.preventDefault();
+            }
+            else{
+                Alert1.style.display ="none"; Alert2.style.display = "none"; Alert3.style.display = "none";
+                inputDay.style.border = "1px solid #ddd"; inputMonth.style.border = "1px solid #ddd"; inputYear.style.border = "1px solid #ddd ";
+            }
+            if (inputDay.value === "") {
+                Alert1.style.display = "block";
+            }
+            if (inputMonth.value === "") {
+                Alert2.style.display = "block";
+            }
+            if (inputYear.value === "") {
+                Alert3.style.display = "block";
+            }
+            
+        }
+
+        document.images[0].onclick = (e) => {
+            let dateNow = new Date();
+            let birthDate = new Date(`${inputMonth.value} ${inputDay.value} , ${inputYear.value}`);
+            let dateDiff = dateNow - birthDate;
+                resultD.innerText = Math.floor(dateDiff / 1000 / 60 / 60 / 24 );
+                resultM.innerText = Math.floor(dateDiff / 1000 / 60 / 60 / 24 / 7);
+                resultY.innerText = Math.floor(dateDiff / 1000 / 60 / 60 / 24 / 365);
+                
+            if (inputDay.value === "" || inputMonth.value === "" || inputYear.value === "" ) {
+                    Alert1.style.display = "block"; Alert2.style.display = "block"; Alert3.style.display = "block";
+                    inputDay.style.border = "1px solid #ff5656"; inputMonth.style.border = "1px solid #ff5656"; inputYear.style.border = "1px solid #ff5656";
+                    resultD.innerText = "--";
+                    resultM.innerText = "--";
+                    resultY.innerText = "--";
+                    e.preventDefault();
+            }
+            if (inputDay.value === "" && inputMonth.value === "" && inputYear.value === "" ) {
+                    Alert1.style.display = "block"; Alert2.style.display = "block"; Alert3.style.display = "block";
+                    inputDay.style.border = "1px solid #ff5656"; inputMonth.style.border = "1px solid #ff5656"; inputYear.style.border = "1px solid #ff5656";
+                    resultD.innerText = "--";
+                    resultM.innerText = "--";
+                    resultY.innerText = "--";
+                    e.preventDefault();
+            }
+            else{
+                Alert1.style.display ="none"; Alert2.style.display = "none"; Alert3.style.display = "none";
+                inputDay.style.border = "1px solid #ddd"; inputMonth.style.border = "1px solid #ddd"; inputYear.style.border = "1px solid #ddd ";
+            }
+            if (inputDay.value === "") {
+                Alert1.style.display = "block"
+            }
+            if (inputMonth.value === "") {
+                Alert2.style.display = "block"
+            }
+            if (inputYear.value === "") {
+                Alert3.style.display = "block"
+            }
+            
+        }
+
+</script>
+</body>
+</html>
